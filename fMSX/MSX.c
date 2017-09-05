@@ -31,6 +31,11 @@
 #include <unistd.h>
 #endif
 
+#ifdef __CELLOS_LV2__
+#define getcwd(x, y) NULL
+#define chdir(x)
+#endif
+
 #define PRINTOK           if(Verbose) puts("OK")
 #define PRINTFAILED       if(Verbose) puts("FAILED")
 #define PRINTRESULT(R)    if(Verbose) puts((R)? "OK":"FAILED")

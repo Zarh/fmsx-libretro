@@ -17,7 +17,7 @@
 #include <ctype.h>
 #include <sys/stat.h>
 
-#if defined(_WIN32)
+#if defined(_WIN32) || defined(__CELLOS_LV2__)
     // Copied from linux libc sys/stat.h:
     #define S_ISREG(m) (((m) & S_IFMT) == S_IFREG)
     #define S_ISDIR(m) (((m) & S_IFMT) == S_IFDIR)
