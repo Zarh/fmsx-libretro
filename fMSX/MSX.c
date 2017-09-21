@@ -34,6 +34,13 @@
 #ifdef __CELLOS_LV2__
 #define getcwd(x, y) NULL
 #define chdir(x)
+char AbsolutePath[512];
+FILE *AbsoluteFopen(const char *file, const char *mode)
+{
+	sprintf(AbsolutePath, "/dev_hdd0/game/SSNE10000/USRDIR/cores/system/%s", file);
+	return fopen(AbsolutePath, mode);
+}	
+#define fopen AbsoluteFopen	
 #endif
 
 #define PRINTOK           if(Verbose) puts("OK")
